@@ -1,28 +1,9 @@
 import os
 import sys
-
-# Si se ejecuta como script directo, asegurar que la carpeta raíz esté en sys.path
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
-
-# Importacion archivos
-import config.config as config
-
-# ============================================================================================================================ #
-#                                     Importar variables desde el paquete de configuración (config)                            # ============================================================================================================
-# ============================================================================================================================ #
-try:
-    # Import directo (cuando se ejecuta desde la raíz del proyecto)
-    from config.config import output_folder, output_file_name, input_folder, input_file_name
-except Exception:
-    # Fallback: añadir la carpeta raíz al sys.path para poder importar cuando se ejecuta el módulo directamente
-    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    if root not in sys.path:
-        sys.path.insert(0, root)
         
 # Importacion archivos        
 from osDef.osDef import borrarCarpeta
+from config import config
 
 # ============================================================================================================================ #
 #                                                   BORRAR POR RUTA                                                            # ============================================================================================================

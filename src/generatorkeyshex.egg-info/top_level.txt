@@ -1,0 +1,5 @@
+config
+generatorKeyHex
+input
+menu
+osDef

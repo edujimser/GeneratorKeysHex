@@ -1,12 +1,6 @@
 import os
 import sys
 
-
-# Si se ejecuta como script directo, asegurar que la carpeta raíz esté en sys.path
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if root not in sys.path:
-    sys.path.insert(0, root)
-
 # Importacion archivos
 from config.config import VERSION, colors
 from generatorKeyHex.FolderDocument import BorrarCarpetaSalida, CrearCarpetaSalida, configuracionCarpetaSalida

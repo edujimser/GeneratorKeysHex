@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "generatorkeyshex"
+version = "0.1.0"
+description = "Generador de claves hexadecimales con menú interactivo"
+authors = [{ name = "Eduardo Jiménez Serrato" }]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+generatorkeyshex = "generatorkeyshex.main:main"
