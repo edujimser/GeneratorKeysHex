@@ -5,19 +5,6 @@ import time
 from tqdm import tqdm
 
 
-# ============================================================================================================================ #
-#                                     Importar variables desde el paquete de configuración (config)                            #
-# ============================================================================================================================ #
-try:
-    # Import directo (cuando se ejecuta desde la raíz del proyecto)
-    from config.config import  output_folder, output_file_name
-except Exception:
-    # Fallback: añadir la carpeta raíz al sys.path para poder importar cuando se ejecuta el módulo directamente
-    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    if root not in sys.path:
-        sys.path.insert(0, root)
-    from config.config import output_folder, output_file_name
-    
 # =========================================================================================================================== #
 #                                     Configura el archivo de OutPut keysForced.h                                             #
 # =========================================================================================================================== #   

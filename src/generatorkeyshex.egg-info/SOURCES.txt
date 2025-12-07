@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/config/__init__.py
+src/config/config.py
+src/generatorKeyHex/FolderDocument.py
+src/generatorKeyHex/formatOutput.py
+src/generatorKeyHex/main.py
+src/generatorkeyshex.egg-info/PKG-INFO
+src/generatorkeyshex.egg-info/SOURCES.txt
+src/generatorkeyshex.egg-info/dependency_links.txt
+src/generatorkeyshex.egg-info/entry_points.txt
+src/generatorkeyshex.egg-info/top_level.txt
+src/menu/menu.py
+src/osDef/osDef.py
