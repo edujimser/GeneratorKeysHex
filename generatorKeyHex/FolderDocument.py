@@ -23,6 +23,8 @@ except Exception:
         
 # Importacion archivos        
 from osDef.osDef import borrarCarpeta
+import desing.texto as texto
+
 
 # ============================================================================================================================ #
 #                                                   BORRAR POR RUTA                                                            # ============================================================================================================
@@ -48,15 +50,13 @@ def configuracionCarpetaSalida():
     #                   🎛️ CONFIGURACIÓN DE GENERACIÓN              #
     # ───────────────────────────────────────────────────────────── #
 
-    print("\n\033[96m" + "═" * 60)
-    print("🎛️  CONFIGURACIÓN DE CLAVES MIFARE CLASSIC".center(60))
-    print("═" * 60 + "\033[0m")
-
+    texto.cabezera_texto("CONFIGURACIÓN DE CARPETA PARA CLAVES MIFARE CLASSIC", config.colors["YELLOW"], config.colors["RESET"])
+    
     # ── 🔢 RANGO DE CLAVES ──────────────────────────────────────── #
     while True:
         try:
-            Number_Items_Inicio_VIRTUAL = (input("🔢 Clave inicial (ej. 0): ".rjust(40)))
-            Number_Items_Fin_VIRTUAL = (input("🔢 Clave final   (ej. 999): ".rjust(40)))
+            Number_Items_Inicio_VIRTUAL = (input("🔢 Clave inicial (ej. 0): "))
+            Number_Items_Fin_VIRTUAL = (input("🔢 Clave final   (ej. 999): "))
 
             #FILTRADO DE ERRORES
             if (
@@ -83,22 +83,23 @@ def configuracionCarpetaSalida():
     while True:
         try:
             num_archivos_VIRTUAL = input(
-                f"📁 ¿Cuántos archivos quieres? (mínimo {config.claves_por_archivo_min} claves por archivo)\n"
-                f"{'Introduce un número entero:'.rjust(40)} "
+                f"\n📁 ¿Cuántos archivos quieres?\n"
+                f"{'Introduce un número:'}"
             )
 
             #FILTRADO DE ERRORES
-            if int(num_archivos_VIRTUAL) < 1 or not num_archivos_VIRTUAL.isdigit():
-                print("❌ Debe ser al menos 1 archivo.\n")
+            if (int(num_archivos_VIRTUAL) < 1) or (not num_archivos_VIRTUAL.isdigit()) or (int(num_archivos_VIRTUAL) < config.Number_Items_Fin):
+                print("\n❌ Debe ser al menos 1 archivo.")
+                print("❌ Debe ser al menos 1 contraseña por archivo.")
                 continue
             
-             #VALIDACION CORRECTA
+            #VALIDACION CORRECTA
             config.num_archivos = int(num_archivos_VIRTUAL)
             break
         
         except ValueError:
             num_archivos_VIRTUAL = 0
-            print("❌ Introduce un número entero válido.\n")
+            print("\n❌ Introduce un número entero válido.\n")
 
     # ── 📊 CÁLCULOS DE DISTRIBUCIÓN ─────────────────────────────── #
     config.total_claves       = config.Number_Items_Fin - config.Number_Items_Inicio 
